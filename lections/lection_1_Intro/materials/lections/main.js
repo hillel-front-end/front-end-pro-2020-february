@@ -18,60 +18,41 @@ Lection 1 - JavaScript Intro
      Этот подход применяется в браузерах для JavaScript. 
 */
 
+// age = 19.10;
+// a = 13;
+// b = '123';
+// c = 'abc';
+// g = b;
+// b = 'aaaa';
 
-// name = 123; // number
-// a = "123"; // String a = '123';
-
-// -------------------------------------------
-
-// a = 1; 
-// b = 2; 
-// c = 0;
-
-// c = a + b;
-// // c = '213';
-
-// console.log(c, 'c');
-
-// c = b - a;
-
-// console.log(c, 'c');
-
-// c = b / a;
-
-// console.log(c, 'c');
-
-// c = b * a;
-
-// console.log(c, 'c');
+// console.log(b, a);
 
 
-// c = b % a;
-
-// console.log(c, 'c');
-
-//-----------------------------
-
-a = 1; 
-b = 'abc'; 
-c = 0;
-g = '123 Валера';
-
-// c = a + b;
-// console.log(c, 'c');
+// ------------------------/
 
 
-// // c = b - a;
-// console.log(c, 'c');
-
-// c = a - b; // a
-
-// console.log(c, 'c');
-
-// g = +g;
-
-g = parseInt(g);
+// a = 1;
+// b = 2;
+// res = a + b;
+// res = a - b;
+// res = a * b;
+// res = b / a;
+// res = b % a;
 
 
-console.log(g, 'g');  
 
+// -------------------- //
+
+a = 'a123abc';
+b = 2;
+
+// res = b * a;
+
+// res = +a;
+
+res = parseInt(a);
+
+console.log(res, 'res');
+
+
+a = prompt();
