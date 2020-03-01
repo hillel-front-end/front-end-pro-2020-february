@@ -54,5 +54,4 @@ res = parseInt(a);
 
 console.log(res, 'res');
 
-
 a = prompt();
