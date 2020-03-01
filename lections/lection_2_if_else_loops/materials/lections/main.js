@@ -120,6 +120,22 @@ login = 'notAdmin'
 // }
   
 
-for(i = 0, res = 0; i < 5; i++) { // i++ == i +=1 == i = i + 1
-  res += i;
-}
+// for(i = 0, res = 0; i < 5; i++) { // i++ == i +=1 == i = i + 1
+//   res += i;
+// }
+
+// sum = 0;
+
+// for(i = 1, sum = 0, foo = 0;i <= 150; i++) {
+//   console.log(i);
+//   sum = sum + i; // sum += 1;
+
+//   if (i % 2 == 0) {
+//     foo += i;
+//   }
+// }
+
+do {
+  value = prompt('Input value');
+  console.log(isNaN(+value));
+} while(isNaN(+value))
