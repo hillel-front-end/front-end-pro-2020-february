@@ -83,11 +83,11 @@ mass = new Array(3);
 
 console.log(mass, 'mass');
 
-for(i = 0; i <= mass.length; i++) {
-    mass[i]= Math.round(Math.random() * (20 - 10) + 10);
-}
+// for(i = 0; i <= mass.length; i++) {
+//     mass[i]= Math.round(Math.random() * (20 - 10) + 10);
+// }
 
-mass[mass.length - 1] = 4;
+// mass[mass.length - 1] = 4;
 
 console.log(mass, 'mass');
 
