@@ -25,10 +25,39 @@
 // document.write('</li></ul>');
 
 /* ---------------------- */
-data = [1, 2, 3, 4, 5, 6];
-count = data.length % 2 ? 1 : 2;
-position = Math.ceil(data.length / 2) - 1;
+// data = [1, 2, 3, 4, 5, 6];
+// count = data.length % 2 ? 1 : 2;
+// position = Math.ceil(data.length / 2) - 1;
 
-data.splice(position, count);
+// data.splice(position, count);
+
+// console.log(data, 'data');
+
+
+
+/*------------------*/
+// data = [
+//   [1, 2, 3],
+//   [1, 2, 3],
+//   [1, 2, 3]
+// ];
+
+
+// console.log(data, 'data');
+
+data = new Array(3);
+
+for(i = 0; i < data.length; i++) {
+  // console.log(data[i]);
+
+  data[i] = new Array(3 * i + 1);
+
+  for(j = 0; j < data[i].length; j++) {
+    data[i][j] = Math.ceil(Math.random() * (10 - 5) + 5);
+    document.write(data[i][j]);
+  }
+
+  document.write('<br />');
+}
 
 console.log(data, 'data');
