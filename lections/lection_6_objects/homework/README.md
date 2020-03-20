@@ -18,4 +18,4 @@
  * Написать функция factorial(n) - которая при помощи рекурсии будет считать значение факториала числа n!
 
  * Заполнить массив случайными числами: 
-  new Array(new Array(4), new Array(3),  new Array(new Array(6), new Array(new Array(3), new Array(3))));
+  `new Array(new Array(4), new Array(3),  new Array(new Array(6), new Array(new Array(3), new Array(3))));`
