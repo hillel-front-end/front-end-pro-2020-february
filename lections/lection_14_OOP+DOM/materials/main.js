@@ -1,71 +1,87 @@
+/*
++ Глобальные обьекты Window, Document
++ setTimeout,  setInterval
++ JS обращение в html
++ html коллекция
++ html элемент
++ Обьекты classList, className, innerText
+*/
 
-// console.log('Lection 12');
+// DOM - Document Object Model
+// Browser object model
 
-// function a() {
-//     console.log(this)
-// }
+//
 
-// obj = {
-//     name: 'valera'
-// }
+window.onload = function() {
+    // var content = document.getElementById('content');
+    // console.dir(content, 'content');
 
-// // a = a.bind(obj);
+    // var footers = document.getElementsByClassName('footer');
 
-// a();
+    // // console.log(footers, 'footer');
+    // var divs = document.getElementsByTagName('div');
 
+    // console.log(divs, 'divs');
 
-function Component (a) {
-    this.a = a;
-}
+    // var queryFooter  = document.querySelector('.footer');
+    // console.dir(queryFooter, 'queryFooter');
+    // var queries = document.querySelectorAll('.footer');
 
-// var component = new Component(1);
+    // console.log(queries, 'queries');
 
-// var mass = new Array();
-
-
-// console.dir(Component, 'Component');
+    // queryFooter.className = 'foo';
 
 
-function HTMLElements(type) {
-    this.type = type;
+    // this.setTimeout(function() {
+    //     // queryFooter.className += ' foo';
+    //     queryFooter.classList.add('foo');
+    // }, 2000);
 
-    if (type == 'a') {
-        this.redirect = function() {
-            console.log('redirect');
+    // this.setTimeout(function() {
+    //     // queryFooter.className += ' foo';
+    //     queryFooter.classList.remove('foo');
+    // }, 4000);
+
+
+
+    // console.log(queryFooter.classList.contains('footer'));
+
+    // queryFooter.classList.toggle('footer');
+
+
+    // setInterval(function() {
+    //     queryFooter.classList.toggle('footer');
+    // }, 1000);
+
+    
+    var queries = document.querySelectorAll('.footer');
+    console.log(queries, 'queries');
+
+    console.dir(queries[0], 'queries');
+    console.log(window.innerHeight, 'innerHeight');
+    console.log(window.innerWidth, 'innerWidth');
+ 
+    this.setInterval(function() {
+        for(var i = 0; i < queries.length; i++) {
+            var maxL = window.innerWidth -  queries[i].clientWidth;
+            var maxT = window.innerHeight - queries[i].clientHeight;
+            queries[i].style.left = getRandom(0 , maxL) + 'px';
+            queries[i].style.top = getRandom(0 , maxT) + 'px';
+            queries[i].style.backgroundColor = getRandomColor();
+            queries[i].style.width = getRandom(0 , 500) + 'px';
+            queries[i].style.height = getRandom(0 , 500) + 'px';
         }
-    } else if (type == 'img') {
-        this.showPicture = function() {
-            console.log('show picture');
-        }
-    } else {
-        console.log(type + ' is not difined');
+    }, 1000);
+
+
+    function getRandom(min , max) {
+        return Math.ceil(Math.random() * (max - min) + min); 
     }
-}
 
-console.log(HTMLElements.prototype , 'prototype');
+    function getRandomColor() {
+        return 'rgb(' +  getRandom(0, 256) + ',' + getRandom(0, 256) + ',' + getRandom(0, 256) + ')';
+    }
 
-
-
-HTMLElements.prototype.render = function() {
-    console.log('render');
+    console.log(getRandomColor());
 };
-
-HTMLElements.prototype.click = function() {
-    console.log('click ..');
-};
-
-var a = new HTMLElements('a');
-var a1 = new HTMLElements('a');
-var img = new HTMLElements('img');
-
-
-// console.log(img.click());
-console.log(a , 'a ');
-console.log(a1 , 'a11 ');
-console.log(img , 'img ');
-
-
-
-
-
-
+ 
