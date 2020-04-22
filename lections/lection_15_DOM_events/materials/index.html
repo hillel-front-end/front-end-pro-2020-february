@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./main.css">
+    <!-- <link rel="stylesheet" href="./main.css"> -->
     <style>
         body {
             height: 2000px;
+            padding: 0.1px;
         }
 
         .box {
         
             cursor: pointer;
-            border: 20px solid black;
-
-
             padding: 20px;
             width: 200px;
             height: 200px;
-            margin-bottom: 10px;
-            background-color: greenyellow;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+
+            transition: background-color .2s;
+            background-color: blue;
+        }
+
+        .box:nth-child(2) {
+            left: 100px;
+            background-color: red;
         }
 
         body div.active {
@@ -38,12 +45,16 @@
 <body>
 
     <div class="box">
-        <!-- 123
-        some text
-        <a href="#">some link</a> -->
-        Text
+        zoom - 1
     </div>
-    some text
+
+    <div class="box">
+        zoom - 2
+    </div>
+
+    <div class="box">
+        zoom - 3
+    </div>
 
 </body>
 <script src="./main.js"></script>
