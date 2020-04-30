@@ -7,24 +7,24 @@
 + https://learn.javascript.ru/modifying-document#ustarevshie-metody-vstavki-udaleniya
 # Лекция
 1) 
-		data = { 
-			name: 'menu', 
-			type: 'row|column', 
-			items: [
-				{
-					title: 'title 1',
-					handler: 'ActionAdd'
-				},
-				{
-					title: 'title 2',
-					handler: 'ActionSaveAs'
-				},
-				{
-					title: 'title 3',
-					handler: 'ActionExit'
-				}
-			]
-		}
+	data = { 
+		name: 'menu', 
+		type: 'row|column', 
+		items: [
+			{
+				title: 'title 1',
+				handler: 'ActionAdd'
+			},
+			{
+				title: 'title 2',
+				handler: 'ActionSaveAs'
+			},
+			{
+				title: 'title 3',
+				handler: 'ActionExit'
+			}
+		]
+	}
 
 		actions = {
 			ActionAdd: function() {},
@@ -32,7 +32,7 @@
 			ActionExit: function() { console.log('ActionExit')}
 		}
 
-		actions['create']
+		actions[ 'ActionAdd']
 
 
 1)Создать вертикальное или горизонтальное (в зависимости от свойства type) меню, в котором будут элементы из свойства items.
