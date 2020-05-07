@@ -26,5 +26,5 @@ class Dog extends Animal {
     }
 }
 
-const rhino = new Animal('Bim');
-const snickers = new Dog('Sharik');
+const bim = new Animal('Bim');
+const sharik = new Dog('Sharik');

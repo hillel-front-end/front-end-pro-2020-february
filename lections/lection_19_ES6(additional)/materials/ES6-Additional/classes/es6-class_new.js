@@ -1,25 +1,16 @@
 class Component{
     static logs = [];
 
-    constructor(cssClassName = '') {
-        this.cssClassName = cssClassName;
-    }
-
-    set element(element) {
-        if (this.__element) return;
-        this.__element = element;
-    }
-
-    get element() {
-       return this.__element;
-    }
-
     static printLogs() {
         document.querySelector('#logs').innerHTML += `
         <ul>
             ${this.logs.map(log => `<li>${ log }</li>`).join('')}
         </ul>
         `
+    }
+
+    constructor(cssClassName = '') {
+        this.cssClassName = cssClassName;
     }
 
     render(selector) {
@@ -30,6 +21,16 @@ class Component{
         Component.logs.push(`Render component in tag with selector = ${selector}`);
         return this;
     }
+
+    set element(element) {
+        if (this._element) return;
+        this._element = element;
+    }
+
+    get element() {
+       return this._element;
+    }
+
 
     addStyles() {  
         if (this.element) {
@@ -58,3 +59,6 @@ component
     .render('#app');
 
 Component.printLogs();
+
+
+console.dir(Component, 'Component');

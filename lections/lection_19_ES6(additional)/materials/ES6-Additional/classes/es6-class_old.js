@@ -11,6 +11,10 @@ function Component(cssClassName) {
     this.getElement = function(element) {
        return __element;
     }
+
+    Component.printLog = function() {
+        
+    }
 }
 
 Component.prototype.render = function(selector) {
@@ -42,3 +46,12 @@ let component = new Component(100, 200);
 component
     .makeComponent('table')
     .render('#app');
+
+var obj = {
+    get value() {
+
+    },
+    set value() {
+
+    }
+}

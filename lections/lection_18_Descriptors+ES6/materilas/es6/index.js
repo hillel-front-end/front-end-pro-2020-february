@@ -150,31 +150,3 @@ obj.k();
 // }
 
 // foo(1, 2, 3);
-
-
-
-
-
-
-// ---------- Methods --------
-
-
-
-
-// ---------- template string -----
-const goods = [
-    { name: 'juice', coast: 1, isBougth: false },
-    { name: 'cola', coast: 2, isBougth: true },
-    { name: 'sprite', coast: 3, isBougth: false }
-];
-
-
-
-
-
-
-// ---------- default params, destructuring, ----
-
-    // [first, second] = [second, first];
-
-// ----------   ----
