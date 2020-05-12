@@ -1,6 +1,7 @@
 # Изучить материал
 * https://expressjs.com/ru/starter/hello-world.html
 * https://expressjs.com/ru/starter/basic-routing.html
+* https://metanit.com/web/nodejs/2.4.php
 * https://medium.com/@osiolabs/read-write-json-files-with-node-js-92d03cc82824 (читаем в первую очередь для выполнения ДЗ)
 
 # Практика
