@@ -22,30 +22,46 @@ app.listen(port, function () { // говорим на каком порту за
 });
 
 
-app.get('/', function(req, res) {
-	const value = Math.round(Math.random() * 50);
-	const status = value > 25? 200 : 404;
-
-	res
-	.status(status)
-	.send({a: 'ok'});
+app.get('/foo', function(req, res) {
+	setTimeout(() => {
+		res
+		  .status(200)
+		  .send('123');
+	  }, 1000)
 });
 
 
-app.post('/', function(req, res) {
-	let status = 200;
-	const {login = 'unnamed', lastName} = req.body;
-	let message;
+app.get('/briz', function(req, res) {
+	setTimeout(() => {
+	  res
+		.status(200)
+		.send('123');
+	}, 3000)
+});
 
-	if (login == 'admin') {
-		status = 200;
-		message = 'welcome';
-	} else {
-		status = 404;
-		message = 'Login is not defined';
-	}
+function getId() {
+	return {id: 'ac12112f12f12'};
+}
+
+
+app.get('/auth', function(req, res) {
+	res
+	.status(200)
+	.send(getId());
+});
+
+function getUsers() {
+	return [
+		{name: 'Valera'}, 
+		{name: 'Valera'}, 
+		{name: 'Valera'}
+	]
+}
+
+app.get('/getUsersById', function(req, res) {
+	console.log(req.query, 'query');
 
 	res
-	.status(status)
-	.send({message: message});
+	.status(200)
+	.send(getUsers());
 });
