@@ -34,7 +34,7 @@ app.get('/foo', function(req, res) {
 app.get('/briz', function(req, res) {
 	setTimeout(() => {
 	  res
-		.status(200)
+		.status(500)
 		.send('123');
 	}, 3000)
 });
@@ -52,15 +52,13 @@ app.get('/auth', function(req, res) {
 
 function getUsers() {
 	return [
-		{name: 'Valera'}, 
-		{name: 'Valera'}, 
-		{name: 'Valera'}
+		{name: 'Valera', desc: 'aaaaaa', age: 10}, 
+		{name: 'Sasha', desc: 'bbbbb',  age: 18}, 
+		{name: 'Andrey', desc: 'ccccc',  age: 20}
 	]
 }
 
-app.get('/getUsersById', function(req, res) {
-	console.log(req.query, 'query');
-
+app.get('/candidates', function(req, res) {
 	res
 	.status(200)
 	.send(getUsers());

@@ -39,11 +39,31 @@ app.listen(port, function () { // говорим на каком порту за
 
 
 //http://localhost:3000/ (GET)
+var a = [
+  {
+      name: 'Valera',
+      age: 23,
+      lastName: 'Adasd',
+      job: 'front-end'
+  },
+  {
+      name: 'Valera',
+      age: 23,
+      lastName: 'Adasd',
+      job: 'front-end'
+  },
+  {
+      name: 'Valera',
+      age: 23,
+      lastName: 'Adasd',
+      job: 'front-end'
+  }
+];
 
-app.get('/', function (req, res) { // req - обьект запроса, res -- обьект ответа
+app.get('/candidates', function (req, res) { // req - обьект запроса, res -- обьект ответа
       console.log('THIS PATH - /');// Вызов обработчика на запрос с path ('/')
-      res.status(404); // вернуть статус запроса 200
-      res.send({content: 123}); // вернуть данные туда от куда пришел запрос
+      res.status(200); // вернуть статус запроса 200
+      res.send(a); // вернуть данные туда от куда пришел запрос
 });
 
 /*
