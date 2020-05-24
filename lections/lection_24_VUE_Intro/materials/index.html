@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: greenyellow;
+        }
+    </style>
+    
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{ hello }}
+        <br />
+        {{ z }}
+        {{ isMarried }}
+
+        <div v-html="foo"></div>
+
+        <input type="text" v-bind:value="hello">
+
+        <button v-bind:disabled="hello.length < 3">123</button>
+        {{hello.length}}
+
+        <a :href="url">123123</a>
+
+        <hr />
+
+        <input type="text" v-bind:value="briz" />
+
+        <input type="text" v-model="briz" />
+        <button v-bind:disabled="briz.length < 6">123</button>
+
+        {{ briz }}
+        {{briz.length}}
+
+        <hr />
+
+        <div v-if="isShow">
+            <div>
+                hello first div
+            </div>
+        </div>
+        <div v-else>
+            Hello second div
+        </div>
+
+        {{ isShow }}
+
+        <hr>
+
+        <div v-show="isShow">
+            <div>
+                hello first div
+            </div>
+        </div>
+
+        
+        <div v-show="!isShow">
+            <div>
+                Hello second div
+            </div>
+        </div>
+
+
+        <hr />
+
+        <ul>
+            <li v-for="item in fruits">{{item}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="user in users" v-if="user.age > 18">{{ user.name }}</li>
+        </ul>
+         
+        <hr />
+
+        <label for="">
+            Login
+            <input type="text" v-model="login">
+        </label>
+
+        <br />
+
+        <label for="">
+            age
+            <input type="number" v-model="age">
+        </label>
+
+        <button @click="toDo">
+            click
+        </button>
+
+
+
+        <button v-on:mousemove="onMove">
+            mousemove
+        </button>
+    
+
+    </div>
+<!-- 
+    //btn.addEventListener('click || mousemove', onMove) -->
+
+    <script src="./main.js"></script>
+</body>
+</html>
