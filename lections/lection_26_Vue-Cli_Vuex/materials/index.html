@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .b {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <label for="">
+            Apple
+            <input type="checkbox" v-model="checkboxes" value="aaaa">
+            {{checkbox}}
+        </label>
+        <input type="checkbox" v-model="checkboxes" value="apple-2">
+        <input type="checkbox" v-model="checkboxes" value="apple - 3">
+        {{checkboxes}}
+
+        <hr />
+
+        <input type="radio" name="foo" v-model="radio" value="apple - 1">
+        <input type="radio" name="foo" v-model="radio" value="apple - 2">
+        <input type="radio" name="foo" v-model="radio" value="apple - 3">
+
+        {{radio}}
+
+        <hr />
+<!-- 
+        <select v-model="select">
+            <option>apple - 2</option>
+            <option>apple - 3</option>
+            <option>apple - 4</option>
+        </select> -->
+
+        <select v-model="select">
+            <option disabled value="">Города</option>
+            <option v-for="option in options" :value="option.value" >{{option.text}}</option>
+        </select>
+
+
+        {{select}}
+
+        <br>
+
+        <input type="text" v-model="city" placeholder="city">
+        <input type="text" v-model="cityCode" placeholder="code">
+        <button @click="onClick" :disabled="!city || !cityCode"> add </button>
+
+        <hr>
+        
+        <!-- <input type="text" v-model.lazy="value"> -->
+        <!-- <input type="number" v-model.number="value"> -->
+        <input type="number" v-model.number.lazy="value">
+        {{typeof value}}
+        {{value}}
+
+        <hr />
+
+
+        <button @contextmenu.stop.prevent="gotTo('click', $event)">click</button>
+
+        <hr>
+
+        <input type="text" @keyup.delete="gotTo">
+
+        <hr />
+
+        <form ref="foo" @submit.prevent="formSubmit">
+            <input type="text" name="login" v-model="formData.login">
+            <input type="text" name="password" v-model="formData.password">
+
+            <button>auth</button>
+
+            {{formData}}
+        </form>
+    </div>
+    <script src="vue-basic.js"></script>
+</body>
+</html>
