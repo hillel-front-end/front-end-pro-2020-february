@@ -1,33 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Contacts from '../views/Contacts.vue'
+import Auth from '../views/Auth.vue'
+import MainApp from '../views/MainApp.vue'
+import NotFound from '../views/NotFound.vue'
+import store from '@/store/index'
+
+console.log(store, 'store');
 
 Vue.use(VueRouter);
 
-  const routes = [
+const routes = [
   {
-    path: '/', // http://localhost:8080/ ||  http://localhost:8080
+    path: '/',
+    name: 'Auth',
+    component: Auth
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about', // // http://localhost:8080/about
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/cotacts',
-    name: 'Contacts',
-    component: Contacts
+    component: MainApp,
+    beforeEnter(from, to, next) {
+      stopRoute(next);
+    }
   },
   {
     path: '*',
     name: 'Not Found',
-    // component: About
+    component: NotFound
   }
-]
+];
+
+function stopRoute(next) {
+  if (store.state.isAuth) {
+    next();
+  } else {
+    router.push('/');
+  }
+}
+
+
 
 const router = new VueRouter({
   mode: 'history',

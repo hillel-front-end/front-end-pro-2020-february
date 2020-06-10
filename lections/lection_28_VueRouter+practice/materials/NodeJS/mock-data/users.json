@@ -1,0 +1,6 @@
+[
+
+  {"id":1,"first_name":"Reece","last_name":"Beckett","gender":"Male", "age":  20},
+  {"id":2,"first_name":"Vance","last_name":"Ducker","gender":"Male", "age":  25},
+  {"id":3,"first_name":"Miquela","last_name":"Verrick","gender":"Female", "age":  15}
+]

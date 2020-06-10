@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to="/" class="indent">HOME</router-link>
-      <router-link to="/about" class="indent">About</router-link>
-      <router-link to="/contacts" class="indent">Contacts</router-link>
-    </div>
     <router-view/>
+    <Registration />
   </div>
 </template>
 
+<script>
+  import Registration from '@/components/Registration';
+  export default  {
+    components: {
+      Registration
+    },
+  }
+
+</script>
 
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -4,39 +4,28 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    foo: 123,
-    login: '',
-    isDisabled: false
-  },
-  mutations: {
-    changeFoo(state, value) {
-      state.foo = value;
+    state: {
+        isAuth: false,
     },
-    changeLogin(state, payload) {
-      state.login = payload;
+    mutations: {
+        setIsAuth(state, payload) {
+            state.isAuth = payload;
+        }
     },
-    changeIsDisabled(state, payload) {
-      state.isDisabled = payload;
-    }
-  },
-  getters: {
-    getIsDisabled(state) {
-      return state.isDisabled;
+    getters: {
+        'GET_IS_AUTH'({isAuth}) {
+            return isAuth;
+        },
     },
-    getFoo(state) {
-      return state.foo;
-    }
-  },
-  actions: {
-    asyncChangeFoo({commit, state}, payload) {
-      commit('changeIsDisabled', true);
+    actions: {
+        async asyncGetAuthFromApi({commit}, payload) {
+            const response = await fetch('http://localhost:3003/auth');
+            const data = await response.json();
 
-      setTimeout((res)=> {
-        console.log('changed',  payload);
-        commit('changeFoo', payload);
-        commit('changeIsDisabled', false);
-      }, 3000);
+            commit('setIsAuth', data.success);
+        }
+    },
+    modules: {
+
     }
-  }
 })

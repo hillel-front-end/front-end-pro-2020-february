@@ -35,7 +35,7 @@ app.get('/auth', function (req, res) { // req - обьект запроса, res
       console.log('THIS PATH - /');// Вызов обработчика на запрос с path ('/')
       res.status(200); // вернуть статус запроса 200
       res.send({
-        success: false
+        success: true
       }); // вернуть данные туда от куда пришел запрос
 });
 
