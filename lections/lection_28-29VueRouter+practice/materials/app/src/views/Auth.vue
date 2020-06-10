@@ -11,12 +11,13 @@
      </label>
 
      <button @click.prevent="signIn()">Sign in</button>
+      <button @click.prevent="registration()">Sign up</button>
 
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
+import {mapActions, mapGetters, mapMutations} from 'vuex';
 
 export default {
   name: 'Auth',
@@ -35,7 +36,11 @@ export default {
     signIn() {
       this.$store.dispatch()
     },
-    ...mapActions(['asyncGetAuthFromApi'])
+    registration() {
+        this.SET_REGISTRATION_MODAL_VISIBILITY(true);
+    },
+    ...mapActions(['asyncGetAuthFromApi']),
+    ...mapMutations(['SET_REGISTRATION_MODAL_VISIBILITY'])
   },
   watch: {
     GET_IS_AUTH(isAuth) {

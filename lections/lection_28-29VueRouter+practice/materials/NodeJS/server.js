@@ -39,6 +39,29 @@ app.get('/auth', function (req, res) { // req - обьект запроса, res
       }); // вернуть данные туда от куда пришел запрос
 });
 
+app.post('/add-user', function (req, res) {
+    const url = './mock-data/users.json';
+
+    fs.readFile(url, 'utf8',function (error, data) {
+        const user = req.body;
+        const users = JSON.parse(data);
+        users.push(new User(user))
+
+        fs.writeFile(url, JSON.stringify(users), (error, data) => {
+            console.log(data);
+            res
+                .send({res: 'ok'})
+        });
+    });
+});
+
+
+function User({login, password, gender = "Not", age = "12"}) {
+    this.login = login;
+    this.password = password;
+    this.gender = gender;
+    this.age = age;
+}
 
 
 

@@ -10,7 +10,7 @@
                     <slot name="content"></slot>
                 </div>
 
-                <footer>
+                <footer class="modal__footer">
                     <slot name="footer"></slot>
                 </footer>
             </div>
@@ -26,11 +26,7 @@ export default {
     data() {
         return {}
     },
-    methods: {
-        save() {
 
-        }
-    }
 }
 </script>
 
@@ -55,16 +51,24 @@ export default {
 
         &__container {
             width: 50%;
+            min-height: 50vh;
             margin: 0 auto;
 
             background-color: white;
             border-radius: 3px;
+            position: relative;
         }
 
         &__container--shadow {
             box-shadow: 0px 1px 6px 1px #0000007a;
         }
 
+        &__footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+        }
 
     }
 </style>
