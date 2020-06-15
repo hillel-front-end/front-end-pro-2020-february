@@ -37,6 +37,7 @@ export default {
         right: 0px;
         top: 0px;
         bottom: 0px;
+        z-index: 999;
 
         &__backdrop {
             width: 100%;

@@ -31,40 +31,90 @@ app.listen(port, function () { // говорим на каком порту за
 });
 
 //------------------------------------------- end config ---------------------------
-app.get('/auth', function (req, res) { // req - обьект запроса, res -- обьект ответа
-      console.log('THIS PATH - /');// Вызов обработчика на запрос с path ('/')
-      res.status(200); // вернуть статус запроса 200
-      res.send({
-        success: true
-      }); // вернуть данные туда от куда пришел запрос
+app.post('/auth', function (req, res) {
+    const url = './mock-data/users.json';
+    const {login = '', password = ''} = req.body;
+
+    readFile(url, (error, data) => {
+        const users = JSON.parse(data);
+        const userData = users.filter((user) => user.login == login && user.password == password);
+        const user = userData.length? userData[0] : false;
+        const responseData = {
+            success: false
+        }
+        res.status(200);
+        console.log(user, 'user');
+
+        if(user) {
+            responseData.success = true;
+            responseData.userInfo = user;
+            delete responseData.userInfo.login;
+            delete responseData.userInfo.password;
+        }
+
+        res.status(200);
+        res.send(responseData);
+    })
+
 });
+
 
 app.post('/add-user', function (req, res) {
     const url = './mock-data/users.json';
-
-    fs.readFile(url, 'utf8',function (error, data) {
+    readFile(url, function (error, data) {
         const user = req.body;
         const users = JSON.parse(data);
+        user.id = users.length + 1;
         users.push(new User(user))
 
-        fs.writeFile(url, JSON.stringify(users), (error, data) => {
-            console.log(data);
-            res
-                .send({res: 'ok'})
-        });
-    });
+        writeFile(url, users,(error, data) => {
+            res.send({res: 'ok'})
+        })
+    })
 });
 
 
-function User({login, password, gender = "Not", age = "12"}) {
+app.get('/get-products', function (req, res) {
+    try {
+        const id = req.query.id || '';
+        readFile(`./mock-data/products/${id}.json`, function (error, data) {
+            const products = JSON.parse(data);
+            res
+                .status(200)
+                .send(products);
+        });
+
+    } catch (e) {
+        console.log(e, 'e');
+        res
+            .status(500)
+            .send({
+                error: e
+            });
+    }
+
+});
+
+function User({login, password, gender = "Not", age = "12", id}) {
     this.login = login;
     this.password = password;
     this.gender = gender;
     this.age = age;
+    this.id = id;
+}
+
+function readFile(url, callback) {
+    fs.readFile(url, 'utf8', callback);
+}
+
+function writeFile(url, data, callback) {
+    fs.writeFile(url, JSON.stringify(data), callback);
 }
 
 
 
+//passportJs
 
-
+// front - end - gitHUb
+// NodeJS - heroku
 

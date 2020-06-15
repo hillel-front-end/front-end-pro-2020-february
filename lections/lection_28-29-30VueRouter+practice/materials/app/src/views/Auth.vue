@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     signIn() {
-      this.$store.dispatch()
+      this.asyncGetAuthFromApi(this.requestPayload)
     },
     registration() {
         this.SET_REGISTRATION_MODAL_VISIBILITY(true);

@@ -4,7 +4,8 @@ import Auth from '../views/Auth.vue'
 import MainApp from '../views/MainApp.vue'
 import NotFound from '../views/NotFound.vue'
 import store from '@/store/index'
-
+import Hello from '../views/main-app/Hello'
+import Products from '../views/main-app/Products'
 console.log(store, 'store');
 
 Vue.use(VueRouter);
@@ -21,7 +22,19 @@ const routes = [
     component: MainApp,
     beforeEnter(from, to, next) {
       stopRoute(next);
-    }
+    },
+    children: [
+      {
+        path: '/',
+        name: 'Hello',
+        component: Hello
+      },
+      {
+        path: '/products',
+        name: 'Products',
+        component: Products
+      }
+    ]
   },
   {
     path: '*',

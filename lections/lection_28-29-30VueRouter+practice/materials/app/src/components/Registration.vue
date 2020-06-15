@@ -11,7 +11,10 @@
                 <div class="registration__content">
                     <label v-for="(value, key) in requestValue">
                         {{key}}
-                        <input type="text" v-model="requestValue[key]" :name="key">
+                        <input type="text"
+                               v-model="requestValue[key]"
+                               :name="key"
+                               :class="['registration__field', `registration__field-${key}`]">
                     </label>
                 </div>
             </template>
